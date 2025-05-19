@@ -11,7 +11,9 @@ NestJS 기반 이벤트/보상 관리 시스템입니다. 사용자 유형에 �
 npm install
 
 # 빌드
-npm run build
+nest build gateway-server
+nest build auth-server
+nest build event-server
 
 # 시행 (Docker 기반)
 docker-compose up --build
@@ -26,13 +28,13 @@ docker-compose up --build
 ## 프로젝트 구조
 
 ```
-apps/
-  ├— auth-server/              # 인증 서버
-  ├— event-server/             # 이벤트 서버
-  └— gateway-server/           # API 게이트워이
+event-reward-manager/apps/
+                      ├— auth-server/              # 인증 서버
+                      ├— event-server/             # 이벤트 서버
+                      └— gateway-server/           # API 게이트워이
 
-libs/
-  └— schemas/           # 공통 MongoDB 스키마
+                    libs/
+                      └— schemas/           # 공통 MongoDB 스키마
 
 docker-compose.yml       # 전체 앱 시행 환경 구성
 ```
@@ -55,7 +57,7 @@ docker-compose.yml       # 전체 앱 시행 환경 구성
 [User]
 - id: string
 - password: string
-- type: string ("1" 운영자, "2" 감시시자, "3" 사용자)
+- type: string ("1" 운영자, "2" 감시자, "3" 사용자)
 
 [Event]
 - eventId: number (자동 증가)
