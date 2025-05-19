@@ -1,0 +1,56 @@
+services:
+  mongo:
+    image: mongo:6
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  gateway:
+    build:
+      context: .
+      dockerfile: ./apps/gateway-server/Dockerfile
+    container_name: gateway
+    ports:
+      - "${GATEWAY_PORT}:3000"
+    depends_on:
+      - auth
+      - event
+    environment:
+      - NODE_ENV=${NODE_ENV}
+      - GATEWAY_PORT=${GATEWAY_PORT}
+      - GATEWAY_BASE_URL=${GATEWAY_BASE_URL}
+
+  auth:
+    build:
+      context: .
+      dockerfile: ./apps/auth-server/Dockerfile
+    container_name: auth
+    ports:
+      - "${AUTH_PORT}:3001"
+    depends_on:
+      - mongo
+    environment:
+      - NODE_ENV=${NODE_ENV}
+      - AUTH_PORT=${AUTH_PORT}
+      - AUTH_MONGO_URI=${AUTH_MONGO_URI}
+      - JWT_SECRET=${JWT_SECRET}
+      - JWT_EXPIRES_IN=${JWT_EXPIRES_IN}
+
+  event:
+    build:
+      context: .
+      dockerfile: ./apps/event-server/Dockerfile
+    container_name: event
+    ports:
+      - "${EVENT_PORT}:3002"
+    depends_on:
+      - mongo
+    environment:
+      - NODE_ENV=${NODE_ENV}
+      - EVENT_PORT=${EVENT_PORT}
+      - EVENT_MONGO_URI=${EVENT_MONGO_URI}
+
+volumes:
+  mongo-data:

@@ -1,0 +1,40 @@
+// {
+//   "compilerOptions": {
+//     "module": "commonjs",
+//     "target": "es2017",
+//     "lib": ["es2020"],
+//     "moduleResolution": "node",
+//     "esModuleInterop": true,
+//     "allowSyntheticDefaultImports": true,
+//     "emitDecoratorMetadata": true,
+//     "experimentalDecorators": true,
+//     "sourceMap": true,
+//     "baseUrl": ".",
+//     "paths": {
+//       "@libs/*": ["libs/*"]
+//     },
+//     "strict": true,
+//     "skipLibCheck": true
+//   }
+// }
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2017",
+    "lib": ["es2020"],
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "paths": {
+      "@libs/*": ["libs/*"]
+    },
+    "strict": true,
+    "skipLibCheck": true,
+    "outDir": "./dist",
+    "rootDir": "."
+  }
+}

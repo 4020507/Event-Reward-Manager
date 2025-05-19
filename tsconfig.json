@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@libs/schemas/*": ["libs/schemas/*"]
+    },
+    "strictPropertyInitialization": false
+  },
+  "include": ["apps/**/*", "libs/**/*"]
+}

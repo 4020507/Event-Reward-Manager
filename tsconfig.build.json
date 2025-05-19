@@ -1,0 +1,9 @@
+{
+  "files": [],
+  "references": [
+    { "path": "libs/schemas" },
+    { "path": "apps/auth-server" },
+    { "path": "apps/event-server" },
+    { "path": "apps/gateway-server" }
+  ]
+}

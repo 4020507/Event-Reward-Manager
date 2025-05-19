@@ -1,0 +1,21 @@
+# Node modules
+node_modules/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# dotenv 환경변수
+#.env
+
+# OS/IDE
+.DS_Store
+.vscode/
+
+# Build outputs
+dist/
+coverage/
+
+# TypeScript
+*.tsbuildinfo
